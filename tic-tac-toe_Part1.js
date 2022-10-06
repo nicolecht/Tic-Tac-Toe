@@ -32,7 +32,14 @@ function markBoard(position, mark) {
 // TODO: print the game board as described at the top of this code skeleton
 // Will not be tested in Part 1
 function printBoard() {
-  console.log(board);
+  const display = [
+    [board[1], board[2], board[3]],
+    [board[4], board[5], board[6]],
+    [board[7], board[8], board[9]],
+  ];
+  console.log(display[0]);
+  console.log(display[1]);
+  console.log(display[2]);
 }
 
 // TODO: check for wrong input, this function should return true or false.
@@ -84,9 +91,9 @@ function checkWin(player) {
 // For tic-tac-toe, tie bascially means the whole board is already occupied
 // This function should return with boolean
 function checkFull() {
-  let i = 0;
+  let i = 1;
 
-  while (i < 9) {
+  while (i < 10) {
     if (board[i] === " ") {
       return false;
     } else {

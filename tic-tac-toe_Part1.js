@@ -50,16 +50,51 @@ function validateMove(position) {
 
 // TODO: list out all the combinations of winning, you will neeed this
 // one of the winning combinations is already done for you
-let winCombinations = [[1, 2, 3]];
+let winCombinations = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+  [1, 4, 7],
+  [2, 5, 8],
+  [3, 6, 9],
+  [1, 5, 9],
+  [3, 5, 7],
+];
 
 // TODO: implement a logic to check if the previous winner just win
 // This method should return with true or false
-function checkWin(player) {}
+function checkWin(player) {
+  let i = 0;
+  let j = 0;
+  while (i < 8) {
+    while (board[winCombinations[i][j]] === player) {
+      if (j === 2) {
+        return true;
+      } else {
+        j++;
+      }
+    }
+    j = 0;
+    i++;
+  }
+  return false;
+}
 
 // TODO: implement a function to check if the game board is already full
 // For tic-tac-toe, tie bascially means the whole board is already occupied
 // This function should return with boolean
-function checkFull() {}
+function checkFull() {
+  let i = 0;
+
+  while (i < 9) {
+    if (board[i] === " ") {
+      return false;
+    } else {
+      i++;
+    }
+  }
+  return true;
+}
 
 // Main Program, a Tester for your functions
 // It does not cover the printBoard() function.
